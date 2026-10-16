@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Cyber colour palette ── */
+  --color-cyber-bg: #0a0e1a;
+  --color-cyber-surface: #111827;
+  --color-cyber-surface-2: #1a2235;
+  --color-cyber-border: #1e293b;
+  --color-cyber-border-glow: #06b6d4;
+  --color-cyber-text: #e2e8f0;
+  --color-cyber-text-dim: #94a3b8;
+  --color-cyber-accent: #06b6d4;
+  --color-cyber-accent-2: #8b5cf6;
+  --color-cyber-green: #10b981;
+  --color-cyber-red: #ef4444;
+  --color-cyber-orange: #f59e0b;
+  --color-cyber-blue: #3b82f6;
+
+  /* ── Typography ── */
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ── Base ── */
+body {
+  background: var(--color-cyber-bg);
+  color: var(--color-cyber-text);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-cyber-surface); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-cyber-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-cyber-accent); }
+
+/* ── Glow utilities ── */
+.glow-cyan {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.15), 0 0 30px rgba(6, 182, 212, 0.05);
+}
+.glow-purple {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.15), 0 0 30px rgba(139, 92, 246, 0.05);
+}
+.glow-green {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+}
+.glow-red {
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+}
+.glow-orange {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+}
+
+/* ── Card ── */
+.cyber-card {
+  background: var(--color-cyber-surface);
+  border: 1px solid var(--color-cyber-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.cyber-card:hover {
+  border-color: var(--color-cyber-accent);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.08);
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.badge-critical { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+.badge-high { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.badge-medium { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+.badge-low { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.badge-supported { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.badge-unsupported { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.badge-contradicted { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+.badge-verified { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.badge-needs_revision { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+/* ── Button ── */
+.btn-primary {
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.btn-primary:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--color-cyber-surface-2);
+  color: var(--color-cyber-text);
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-cyber-border);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-secondary:hover {
+  border-color: var(--color-cyber-accent);
+  background: rgba(6, 182, 212, 0.05);
+}
+
+/* ── Pulse animation ── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(6, 182, 212, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.4); }
+}
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ── React Flow custom styles ── */
+.react-flow__node {
+  font-family: var(--font-sans) !important;
+}
+.react-flow__edge-path {
+  stroke: var(--color-cyber-border) !important;
+  stroke-width: 2 !important;
+}
+.react-flow__edge.animated .react-flow__edge-path {
+  stroke: var(--color-cyber-accent) !important;
+}
+.react-flow__background {
+  background: var(--color-cyber-bg) !important;
+}
+.react-flow__controls button {
+  background: var(--color-cyber-surface) !important;
+  border-color: var(--color-cyber-border) !important;
+  color: var(--color-cyber-text) !important;
+  fill: var(--color-cyber-text) !important;
+}
+.react-flow__controls button:hover {
+  background: var(--color-cyber-surface-2) !important;
+}
+.react-flow__minimap {
+  background: var(--color-cyber-surface) !important;
+  border: 1px solid var(--color-cyber-border) !important;
+  border-radius: 8px !important;
+}
+
+/* ── Spinner ── */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-cyber-border);
+  border-top-color: var(--color-cyber-accent);
+  border-radius: 50%;
+  animation: spin-slow 0.8s linear infinite;
+}
+
+/* ── Comparison highlight ── */
+.changed-highlight {
+  background: rgba(245, 158, 11, 0.08);
+  border-left: 3px solid var(--color-cyber-orange);
+  padding-left: 0.75rem;
+}
+
+/* ── Confidence bar ── */
+.confidence-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-cyber-surface-2);
+  overflow: hidden;
+}
+.confidence-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
