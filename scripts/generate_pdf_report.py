@@ -329,6 +329,7 @@ def generate_pdf(output_path: str, project_root: str):
     meta_text = f"""
     <b>Technical Architecture, Implementation, and Full Source Code Report</b><br/><br/>
     <b>Author / Engineer:</b> Umar Khatri<br/>
+    <b>GitHub Repository:</b> <font color='#0284c7'><u>https://github.com/umar-khatri/cyber-explain-agent</u></font><br/>
     <b>Generated Date:</b> {datetime.now().strftime('%B %d, %Y')}<br/>
     <b>Status:</b> Production Ready & Tested<br/>
     <b>Backend:</b> Python 3.13, FastAPI, LangGraph, Groq (<code>openai/gpt-oss-120b</code>)<br/>
@@ -699,7 +700,8 @@ def generate_pdf(output_path: str, project_root: str):
     story.append(Paragraph("7. Setup, Deployment & Verification Manual", styles["SectionH1"]))
 
     manual_text = """
-    <b>1. Prerequisites:</b><br/>
+    <b>1. GitHub Repository & Prerequisites:</b><br/>
+    • GitHub Repository: <code>https://github.com/umar-khatri/cyber-explain-agent.git</code><br/>
     • Python ≥ 3.10 (Tested on Python 3.13 macOS ARM64)<br/>
     • Node.js ≥ 18 (Tested with Next.js 16.4 Turbopack)<br/>
     • Groq API Key (using free tier <code>openai/gpt-oss-120b</code>)<br/>
